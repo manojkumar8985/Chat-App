@@ -1,0 +1,225 @@
+/* ================= TOP BAR (FIXED & CLEAN) ================= */
+
+.topbar {
+  height: 70px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: hsl(var(--b1) / 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  position: sticky;
+  top: 0;
+  z-index: 90;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* LEFT PLACEHOLDER */
+.topbar-left {
+  flex: 1;
+}
+
+/* RIGHT ACTIONS */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ICON BUTTONS */
+.topbar-btn {
+  position: relative;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d1d5db;
+
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.topbar-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.topbar-btn.logout:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+/* NOTIFICATION DOT */
+.notification-dot {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+/* PROFILE */
+.topbar-profile {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: 2px solid rgba(34, 197, 94, 0.6);
+}
+
+.topbar-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .topbar-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .topbar-profile {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+
+
+
+.theme-wrapper {
+  position: relative;
+}
+
+/* 🌞 Dropdown container */
+.theme-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+
+  width: 200px;
+  max-height: 240px;
+
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 8px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 🖱 Scrollbar */
+.theme-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.theme-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+}
+
+.theme-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 🎨 Theme item */
+.theme-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.theme-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 🎨 Color dots */
+.theme-colors {
+  display: flex;
+  gap: 4px;
+}
+
+.theme-colors span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* 📱 MOBILE (≤ 480px) */
+@media (max-width: 480px) {
+  .theme-dropdown {
+    right: -40px;           /* prevents overflow */
+    width: 170px;
+    max-height: 200px;
+  }
+
+  .theme-item {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* 📱 TABLET (≤ 768px) */
+@media (max-width: 768px) {
+  .theme-dropdown {
+    width: 180px;
+  }
+}
+
+
+/* ⭐ Active theme highlight */
+.theme-item.active {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
+}
+
+/* Smooth transition */
+.theme-item {
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+/* Slight scale on active */
+.theme-item.active {
+  transform: scale(1.02);
+}
+
+/* ✔ Check icon */
+.theme-check {
+  margin-left: auto;
+  color: #a78bfa;
+}
+
+/* Theme label spacing */
+.theme-label {
+  flex: 1;
+}
