@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import { axiosInstance } from "../axiosInstance";
 import toast from "react-hot-toast";
@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 function Login() {
     let [userInfo,set]=useState({"fullName":"","password":""});
 
-
+    const navigate = useNavigate();
 
     const queryClient=useQueryClient();
 
@@ -31,6 +31,7 @@ function Login() {
 
     
     toast.success("login success", { duration: 2000 });
+    navigate("/");
   } catch (err) {
     toast.error(err.response?.data?.message)
     // alert(err.response?.data?.message || "Login failed");
