@@ -49,7 +49,7 @@ function Signup() {
         set({...userInfo,[e.target.name]:e.target.value})
         setProblem("");
     }
-    
+    const [acceptedTerms, setAcceptedTerms] = useState(false);
 
 
 
@@ -168,29 +168,41 @@ function Signup() {
             </div>
 
 
+<div className="flex items-center gap-2 text-sm text-gray-400">
+        <input
+          type="checkbox"
+          className="accent-green-400 cursor-pointer"
+          checked={acceptedTerms}
+          onChange={(e) => setAcceptedTerms(e.target.checked)}
+        />
+        <span>
+          I agree to the{" "}
+          <span className="text-green-400 cursor-pointer">
+            terms of service
+          </span>{" "}
+          and{" "}
+          <span className="text-green-400 cursor-pointer">
+            privacy policy
+          </span>
+        </span>
+      </div>
 
-            {/* Terms */}
-            <div className="flex items-center gap-2 text-sm text-gray-400">
-              <input type="checkbox" className="accent-green-400" />
-              <span>
-                I agree to the{" "}
-                <span className="text-green-400 cursor-pointer">
-                  terms of service
-                </span>{" "}
-                and{" "}
-                <span className="text-green-400 cursor-pointer">
-                  privacy policy
-                </span>
-              </span>
-            </div>
+      {/* Button */}
+      <button
+        type="submit"
+        disabled={!acceptedTerms}
+        className={`w-full py-3 rounded-full font-semibold transition
+          ${
+            acceptedTerms
+              ? "bg-green-500 hover:bg-green-600 text-black"
+              : "bg-gray-600 text-gray-300 cursor-not-allowed"
+          }
+        `}
+      >
+        Create Account
+      </button>
 
-            {/* Button */}
-            <button
-              type="submit"
-              className="w-full py-3 rounded-full bg-green-500 hover:bg-green-600 text-black font-semibold transition"
-            >
-              Create Account
-            </button>
+
 
             {/* Login link */}
             <p className="text-center text-sm text-gray-400">
