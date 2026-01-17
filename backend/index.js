@@ -14,8 +14,14 @@ async function main(){
     await mongoose.connect(process.env.MONGO_URL)
 }
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-app-taupe-eight.vercel.app",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  origin: allowedOrigins,
   credentials: true
 }))
 
